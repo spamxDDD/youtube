@@ -239,22 +239,6 @@ client.on("message", (message) => {
     }
  
 });
- client.on('guildMemberRemove', member => {
-        var embed = new Discord.RichEmbed()
-        .setAuthor(member.user.username, member.user.avatarURL)
-        .setThumbnail(member.user.avatarURL)
-        .setTitle(`بس بعرف وين رحت؟؟؟ :raised_hand::skin-tone-1: :pensive:`)
-        .setDescription(`مع السلامه تشرفنا بك :raised_hand::skin-tone-1: :pensive: `)
-        .addField('   تبقي',`**[ ${member.guild.memberCount} ]**`,true)
-        .setColor('PURPLE')
-        .setFooter(`====اهلا السيرفر نور بيك و الله====`, 'https://cdn.discordapp.com/attachments/397818254439219217/399292026782351381/shy.png')
-   
-    var channel =member.guild.channels.find('name', 'welcome-‹‹')
-    if (!channel) return;
-    channel.send({embed : embed});
- 
-    });
-
 
 
 
