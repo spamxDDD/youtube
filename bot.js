@@ -284,7 +284,23 @@ client.on('message', message => {
     }
     });
 
-
+const fs = require('fs')
+const p = {}
+const devs = ['461059496861630465']
+client.on('message', message => {
+if(message.channel.type === "dm") return;
+if(message.author.bot) return;
+if(!p[message.guild.id]) p[message.guild.id] = {
+    prefix: "*"
+}
+const prefix = p[message.guild.id].prefix
+  if (message.content.startsWith(prefix + "setprefix")) {
+    if(!message.member.hasPermission(`MANAGE_GUILD`)) return;
+    let newPrefix = message.content.split(' ').slice(1).join(" ")
+    if(!newPrefix) return message.reply(`**${prefix}setprefix <prefix>**`)
+    p[message.guild.id].prefix = newPrefix
+    message.channel.send(`**${message.guild.name}'تم تغيير البرفكس ${newPrefix}**`);
+}
 
 
 
