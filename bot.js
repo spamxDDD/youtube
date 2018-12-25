@@ -140,4 +140,21 @@ client.on('message',async message => {
             }
 })
 
+client.on('guildMemberRemove', member => {
+    var embed = new Discord.RichEmbed()
+.setAuthor(member.user.username, member.user.avatarURL)
+.setThumbnail(member.user.avatarURL)
+.setTitle('***خرج من السيرفر***')
+.addField('**الاسم**',`[ ${member} ]`)
+.addField('**عدد الاعضاء**',`[ ${member.guild.memberCount} ]`,true)
+.setColor('Random')
+   
+   var channel =member.guild.channels.find('name', 'general')
+   if (!channel) return;
+         channel.send({embed : embed});
+ 
+});
+
+
+
 client.login(process.env.BOT_TOKEN);// لا تغير فيها شيء
