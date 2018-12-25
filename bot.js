@@ -149,7 +149,7 @@ client.on('guildMemberRemove', member => {
 .addField('**عدد الاعضاء**',`[ ${member.guild.memberCount} ]`,true)
 .setColor('Random')
    
-   var channel =member.guild.channels.find('name', 'general')
+   var channel =member.guild.channels.find('name', 'welcome-‹‹')
    if (!channel) return;
          channel.send({embed : embed});
  
@@ -240,7 +240,49 @@ client.on("message", (message) => {
  
 });
 
-
+client.on('guildMemberAdd', member => {
+    let channel = member.guild.channels.find('name', 'client.on('guildMemberAdd', member => {
+    let channel = member.guild.channels.find('name', 'welcome-‹‹');
+    let memberavatar = member.user.avatarURL
+      if (!channel) return;
+    let embed = new Discord.RichEmbed()
+        .setColor('PURPLE')
+        .setThumbnail(memberavatar)
+        .addField(' | name :  ',`${member}`)
+        .addField(' | اطلق من دخل' , `Welcome to the server, ${member}`)
+        .addField(' | user :', "**[" + `${member.id}` + "]**" )
+                .addField('➡| انت العضو رقم',`${member.guild.memberCount}`)
+               
+                  .addField("Name:",`<@` + `${member.id}` + `>`, true)
+                     
+                                     .addField(' الـسيرفر', `${member.guild.name}`,true)
+                                       
+     .setFooter(`${member.guild.name}`)
+        .setTimestamp()
+   
+      channel.sendEmbed(embed);
+    });
+   ');
+    let memberavatar = member.user.avatarURL
+      if (!channel) return;
+    let embed = new Discord.RichEmbed()
+        .setColor('PURPLE')
+        .setThumbnail(memberavatar)
+        .addField(' | name :  ',`${member}`)
+        .addField(' | اطلق من دخل' , `Welcome to the server, ${member}`)
+        .addField(' | user :', "**[" + `${member.id}` + "]**" )
+                .addField('➡| انت العضو رقم',`${member.guild.memberCount}`)
+               
+                  .addField("Name:",`<@` + `${member.id}` + `>`, true)
+                     
+                                     .addField(' الـسيرفر', `${member.guild.name}`,true)
+                                       
+     .setFooter(`${member.guild.name}`)
+        .setTimestamp()
+   
+      channel.sendEmbed(embed);
+    });
+   
 
 
 
