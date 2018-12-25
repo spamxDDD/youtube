@@ -25,7 +25,7 @@ client.on("message", message => {
                           var age = m2.content;
                           m2.delete()
                           message.channel.send( message.member + ', **:timer:**').then( (m) =>{
-                            m.edit( message.member + ', **هل ستتفاعل فى الرومات الصوتيه و الكتابية ؟ 🎙**' )
+                            m.edit( message.member + ', **هل ستتفاعل فى السيرفر ماين كرافت ؟ 🎙**' )
                             setTimeout(() => {
                               m.delete()
                             }, 10000);
