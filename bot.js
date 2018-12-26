@@ -245,36 +245,17 @@ client.on("message", (message) => {
 
 client.on("message", message => {
 
-            if (message.content.startsWith(prefix + "bc4")) {
+            if (message.content.startsWith(prefix + "bc")) {
                          if (!message.member.hasPermission("ADMINISTRATOR"))  return;
   let args = message.content.split(" ").slice(1);
   var argresult = args.join(' '); 
-  message.guild.members.filter(m => m.presence.status !== 'all').forEach(m => {
+  message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
  m.send(`${argresult}\n ${m}`);
 })
  message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'all').size}\` : عدد الاعضاء المستلمين`); 
  message.delete(); 
 };     
 });
-client.on('message',async msg => {//Toxic Codes
-  var p = "*";//Toxic Codes
-  if(msg.content.startsWith(p + "setuser")) {//Toxic Codes
-  if(!msg.guild.member(msg.author).hasPermissions('MANAGE_CHANNELS')) return msg.reply('❌ **ليس لديك صلاحيه**');//Toxic Codes
-  if(!msg.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS'])) return msg.reply('❌ **البوت لا يمتلك صلاحية**');//Toxic Codes
-  msg.guild.createChannel(`Members : ◤ → ${client.users.size} ← ◢` , 'voice').then(time => {//Toxic Codes
-    });//Toxic Codes
-
-  }
- 
-});
-        client.on('message', async message => {
-          if(message.content.startsWith(prefix + "active")) {
-      if(!message.channel.guild) return message.reply("** هذا الامر للسيرفرات فقط :no_entry: ** ");
-            message.member.addRole(message.guild.roles.find("name". "Active"));
-            message.author.send("** تم تفعيلك استمتع :slight_smile: **")
-          }
-        });
-
 
 
 
