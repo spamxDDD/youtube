@@ -257,7 +257,7 @@ client.on("message", message => {
 };     
 });
 client.on('message',async msg => {//Toxic Codes
-  var p = "-";//Toxic Codes
+  var p = "*";//Toxic Codes
   if(msg.content.startsWith(p + "setuser")) {//Toxic Codes
   if(!msg.guild.member(msg.author).hasPermissions('MANAGE_CHANNELS')) return msg.reply('❌ **ليس لديك صلاحيه**');//Toxic Codes
   if(!msg.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS'])) return msg.reply('❌ **البوت لا يمتلك صلاحية**');//Toxic Codes
@@ -267,39 +267,14 @@ client.on('message',async msg => {//Toxic Codes
   }
  
 });
+        client.on('message', async message => {
+          if(message.content.startsWith(prefix + "active")) {
+              if(!message.channel.guild) return message.reply message.channel.send("** هذا الامر للسيرفرات فقط :no_entry: ** ");
+            message.member.addRole(message.guild.roles.find("name". "Active"));
+            message.author.send("** تم تفعيلك استمتع :slight_smile: **")
+          }
+        });
 
-client.on('guildMemberAdd', member => {
-member.addRole(member.guild.roles.find('name', 'not active'));
-});
- 
- 
-client.on('message', message => {                      
-    if(!message.channel.guild) return;
-       if(message.content.startsWith(prefix + 'active')) {
-        var modlog = client.channels.find('name', 'الـــــــــشات_العام');
-       if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
-       message.channel.sendMessage(`اضغط على الصح عشان تتفعل`).then(msg => {
-       
-       
-        msg.react('✅')
-       .then(() => msg.react('✅'))
-     
-     
- 
-       let activeFilter = (reaction, user) => reaction.emoji.name === '✅' && user.id === message.author.id;
-     
-       let active = msg.createReactionCollector(activeFilter, { time: 15000 });
-     
-                                                       
-                               active.on("collect", r => {
-                                   message.member.addRole(message.guild.roles.find("name", "active"));
-                                   msg.delete();
-                                   message.channel.send(`**تم تفعيلك استمتع.**`).then(m => m.delete(1000));
-     
-                                   })
-                                   })
-                                   }
-                                   });
 
 
 
