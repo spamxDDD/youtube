@@ -279,13 +279,9 @@ let args2 = message.content.split(" ").slice(2).join(" ")
 if(!args) return message.channel.send('Please Type The Channel Name')
 if(!ch) return;
 if(!args2) return message.channel.send('Please Type The Name')
-ch.edit({ name: `${args}` }
+ch.edit({ name: `${args}` })
 message.channel.send('Done')
 })
-
-
-
-
 
 
 
