@@ -271,8 +271,8 @@ client.on("message", (message) => {
         }
     });
 client.on('message', message => {
-  let args = message.content.spilt(" ").slice(1).join(" ")
-let args2 = message.content.spilt(" ").slice(2).join(" ")
+  let args = message.content.split(" ").slice(1).join(" ")
+let args2 = message.content.split(" ").slice(2).join(" ")
   let ch = message.guild.channels.find('name', `${args}`)
   if(message.content === `${prefix}setName`)
 if(!args) return message.channel.send('Please Type The Channel Name')
@@ -286,8 +286,6 @@ let embed = new Discord.RichEmbed()
 message.channel.send(embed)
 ch.setName(args)
 })
-
-
 
 
 
