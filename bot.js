@@ -270,7 +270,22 @@ client.on("message", (message) => {
             return;
         }
     });
-
+client.on('message', message => {
+  let args = message.content.spilt(" ").slice(1).join(" ")
+let args2 = message.content.spilt(" ").slice(2).join(" ")
+  let ch = message.guild.channels.find('name', `${args}`)
+  if(message.content === `${prefix}setName`)
+if(!args) return message.channel.send('Please Type The Channel Name')
+if(!ch) return message.channel.send('Cant Find This Channel !')
+if(!args2) return message.channel.send('Please Type The Name')
+let embed = new Discord.RichEmbed()
+.setTitle('Changed !')
+.addField('Old Name', `${args}`)
+.addField('New Name', `${args2}`)
+.setFooter(`Requested By: ${message.author}`)
+message.channel.send(embed)
+ch.setName(args)
+})
 
 
 
