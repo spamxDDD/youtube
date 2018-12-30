@@ -276,7 +276,7 @@ let args2 = message.content.split(" ").slice(2).join(" ")
   let ch = message.guild.channels.find('name', `${args}`)
   if(message.content === `${prefix}setName`)
 if(!args) return message.channel.send('Please Type The Channel Name')
-if(!ch) return message.channel.send('Cant Find This Channel !')
+if(!ch) return ;
 if(!args2) return message.channel.send('Please Type The Name')
 let embed = new Discord.RichEmbed()
 .setTitle('Changed !')
@@ -286,9 +286,6 @@ let embed = new Discord.RichEmbed()
 message.channel.send(embed)
 ch.setName(args)
 })
-
-
-
 
 
 
